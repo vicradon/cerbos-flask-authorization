@@ -143,6 +143,9 @@ def seed_data(db: Database):
 
 
 if __name__ == "__main__":
+    if os.path.exists("./blog.db"):
+        os.remove("./blog.db")
+
     db = Database()
     
     initialize_db(db)
