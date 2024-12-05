@@ -1,0 +1,7 @@
+.env
+blog.db
+.venv
+__pycache__
+
+instance/*
+cerbos/config.yaml
