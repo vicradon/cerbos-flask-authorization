@@ -68,6 +68,7 @@ def check_permission(action, model, instance):
     resource = get_resource_from_model(model, instance)
 
     print(resource)
+    
     with CerbosClient("localhost:3593") as c:
         principal = get_principal(g.user)
 

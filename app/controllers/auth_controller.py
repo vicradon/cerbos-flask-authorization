@@ -30,7 +30,7 @@ def register_user(data):
             "id": user.id,
             "username": user.username,
             "email": user.email,
-            "email_verified": user.email_is_verified
+            "email_is_verified": user.email_is_verified
         }
     }), 201
 
@@ -45,6 +45,6 @@ def verify_user_email():
             "id": user.id,
             "username": user.username,
             "email": user.email,
-            "email_verified": user.email_is_verified
+            "email_is_verified": user.email_is_verified
         }
     })

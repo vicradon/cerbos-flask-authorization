@@ -7,10 +7,13 @@ from app.config import Config
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
 
+
     if test_config is None:
         app.config.from_object(Config)
     else:
         app.config.from_mapping(test_config)
+
+    app.url_map.strict_slashes = app.config.get('STRICT_SLASHES', True)
 
     try:
         os.makedirs(app.instance_path)
