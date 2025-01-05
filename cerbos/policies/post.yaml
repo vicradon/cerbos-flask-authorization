@@ -4,17 +4,20 @@ resourcePolicy:
   version: default
   resource: post
   rules:
-    - actions: ["*"]
+    - name: allow_all_actions
+      actions: ["*"]
       effect: EFFECT_ALLOW
       roles:
         - admin
 
-    - actions: ["create"]
+    - name: allow_user_to_create_posts
+      actions: ["create"]
       effect: EFFECT_ALLOW
       roles:
         - user
 
-    - actions: ["update", "delete"]
+    - name: allow_user_to_update_and_delete_posts
+      actions: ["update", "delete"]
       effect: EFFECT_ALLOW
       roles:
         - user
@@ -22,7 +25,8 @@ resourcePolicy:
         match:
           expr: request.resource.attr.user_id == request.principal.id
 
-    - actions: ["read"]
+    - name: allow_user_to_read_posts
+      actions: ["read"]
       effect: EFFECT_ALLOW
       roles:
         - user
